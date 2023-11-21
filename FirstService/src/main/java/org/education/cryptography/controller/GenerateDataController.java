@@ -1,8 +1,6 @@
 package org.education.cryptography.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.education.cryptography.services.DataCreatorService;
-import org.education.cryptography.services.EcdsaService;
 import org.education.cryptography.services.FeignSenderService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +13,6 @@ import java.security.spec.InvalidKeySpecException;
 @RestController
 @RequiredArgsConstructor
 public class GenerateDataController {
-
     private final FeignSenderService feignSenderService;
 
     @GetMapping("/randomBytes")

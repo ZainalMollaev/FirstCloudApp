@@ -1,6 +1,5 @@
 package org.education.cryptography.services;
 
-import org.education.cryptography.dto.EcdsaDto;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;
