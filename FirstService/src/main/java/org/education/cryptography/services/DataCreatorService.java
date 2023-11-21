@@ -1,11 +1,13 @@
 package org.education.cryptography.services;
 
+import org.education.cryptography.dto.EcdsaDto;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;
 
 @Service
-public class CreateData {
+public class DataCreatorService {
+
     public byte[] randomBytes(int kb) {
         int dataSize = kb * 1024;
 
@@ -16,4 +18,6 @@ public class CreateData {
 
         return randomData;
     }
+
+
 }

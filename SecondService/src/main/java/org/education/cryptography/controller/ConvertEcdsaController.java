@@ -25,17 +25,7 @@ public class ConvertEcdsaController {
             SignatureException,
             InvalidKeyException {
 
-        EcdsaDto ecdsaDto;
-
-        if (data.length > 0) {
-            ecdsaDto =  convert.sign(data);
-        } else {
-            ecdsaDto = EcdsaDto.builder()
-                    .message("Не подписано")
-                    .build();
-        }
-
-        return ecdsaDto;
+        return convert.sign(data);
     }
 
 }

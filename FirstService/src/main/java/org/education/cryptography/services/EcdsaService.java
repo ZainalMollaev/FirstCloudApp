@@ -24,9 +24,8 @@ public class EcdsaService {
         KeyFactory kf = KeyFactory.getInstance("EC");
         ecdsaVerify.initVerify(kf.generatePublic(encodedKeySpec));
         ecdsaVerify.update(randomData);
-        boolean verified = ecdsaVerify.verify(ecdsaDto.getSubscribeData());
-        return verified;
 
+        return ecdsaVerify.verify(ecdsaDto.getSubscribeData());
     }
 
 

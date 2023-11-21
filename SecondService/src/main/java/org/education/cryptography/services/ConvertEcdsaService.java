@@ -43,7 +43,6 @@ public class ConvertEcdsaService {
         return EcdsaDto.builder()
                 .subscribeData(signature)
                 .publicKey(publicKey)
-                .message("Подписано")
                 .build();
     }
 }

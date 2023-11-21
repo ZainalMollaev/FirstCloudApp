@@ -17,6 +17,5 @@ public class EcdsaDto {
 
     private byte[] subscribeData;
     private byte[] publicKey;
-    private String message;
 
 }
