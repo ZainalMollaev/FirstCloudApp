@@ -1,6 +1,6 @@
-package org.education.services.controller.feign;
+package org.education.cryptography.controller.feign;
 
-import org.education.services.dto.EcdsaDto;
+import org.education.cryptography.dto.EcdsaDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

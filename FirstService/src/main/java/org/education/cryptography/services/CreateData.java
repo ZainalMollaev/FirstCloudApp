@@ -1,4 +1,4 @@
-package org.education.services.services;
+package org.education.cryptography.services;
 
 import org.springframework.stereotype.Service;
 

@@ -1,9 +1,9 @@
-package org.education.services.controller;
+package org.education.cryptography.controller;
 
 
 import lombok.RequiredArgsConstructor;
-import org.education.services.services.ConvertEcdsaService;
-import org.education.services.dto.EcdsaDto;
+import org.education.cryptography.services.ConvertEcdsaService;
+import org.education.cryptography.dto.EcdsaDto;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

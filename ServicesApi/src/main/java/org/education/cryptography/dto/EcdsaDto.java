@@ -1,4 +1,4 @@
-package org.education.services.dto;
+package org.education.cryptography.dto;
 
 import lombok.Setter;
 import lombok.Getter;

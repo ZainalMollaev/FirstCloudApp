@@ -1,7 +1,7 @@
-package org.education.services.services;
+package org.education.cryptography.services;
 
 import lombok.RequiredArgsConstructor;
-import org.education.services.dto.EcdsaDto;
+import org.education.cryptography.dto.EcdsaDto;
 import org.springframework.stereotype.Service;
 
 import java.security.InvalidKeyException;

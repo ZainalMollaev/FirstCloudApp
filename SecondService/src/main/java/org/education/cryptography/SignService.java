@@ -1,4 +1,4 @@
-package org.education.services;
+package org.education.cryptography;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

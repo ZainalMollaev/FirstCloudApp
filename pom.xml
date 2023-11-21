@@ -11,7 +11,7 @@
         <relativePath />
     </parent>
 
-    <groupId>org.education.services</groupId>
+    <groupId>org.education.cryptography</groupId>
     <artifactId>FirstCloudApp</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
