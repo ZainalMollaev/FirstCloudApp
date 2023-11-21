@@ -28,5 +28,4 @@ public class EcdsaService {
         return ecdsaVerify.verify(ecdsaDto.getSubscribeData());
     }
 
-
 }

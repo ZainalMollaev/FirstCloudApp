@@ -13,6 +13,7 @@ import java.security.spec.InvalidKeySpecException;
 @RestController
 @RequiredArgsConstructor
 public class GenerateDataController {
+
     private final FeignSenderService feignSenderService;
 
     @GetMapping("/randomBytes")
@@ -20,7 +21,5 @@ public class GenerateDataController {
 
         return feignSenderService.subscribe();
     }
-
-
 
 }
