@@ -41,7 +41,7 @@ public class ConvertEcdsaService {
         byte[] signature = ecdsaSign.sign();
 
         return EcdsaDto.builder()
-                .subscribeData(signature)
+                .message(signature)
                 .publicKey(publicKey)
                 .build();
     }

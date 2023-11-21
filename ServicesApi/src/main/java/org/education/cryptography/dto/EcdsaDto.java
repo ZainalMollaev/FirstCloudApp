@@ -15,7 +15,8 @@ import lombok.Builder;
 @Builder
 public class EcdsaDto {
 
-    private byte[] subscribeData;
+    private byte[] message;
+    private byte[] subscribeMessage;
     private byte[] publicKey;
 
 }

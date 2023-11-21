@@ -17,15 +17,15 @@ import java.util.Base64;
 @Service
 public class EcdsaService {
 
-    public boolean isCorrect(EcdsaDto ecdsaDto, byte[] randomData) throws NoSuchAlgorithmException, SignatureException, InvalidKeyException, InvalidKeySpecException {
+    public boolean isCorrect(EcdsaDto ecdsaDto) throws NoSuchAlgorithmException, SignatureException, InvalidKeyException, InvalidKeySpecException {
 
         Signature ecdsaVerify = Signature.getInstance("SHA256withECDSA");
         EncodedKeySpec encodedKeySpec = new X509EncodedKeySpec(Base64.getDecoder().decode(ecdsaDto.getPublicKey()));
         KeyFactory kf = KeyFactory.getInstance("EC");
         ecdsaVerify.initVerify(kf.generatePublic(encodedKeySpec));
-        ecdsaVerify.update(randomData);
+        ecdsaVerify.update(ecdsaDto.getMessage());
 
-        return ecdsaVerify.verify(ecdsaDto.getSubscribeData());
+        return ecdsaVerify.verify(ecdsaDto.getMessage());
     }
 
 

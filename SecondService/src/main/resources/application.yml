@@ -5,3 +5,8 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
+
+redis:
+  topic:
+    sign: signServiceTopic
+    topic: gatewayTopic
