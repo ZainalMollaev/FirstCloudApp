@@ -1,4 +1,4 @@
-package org.education.services.controller;
+package org.education.services.services;
 
 import org.springframework.stereotype.Service;
 

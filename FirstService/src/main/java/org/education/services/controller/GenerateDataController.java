@@ -1,7 +1,10 @@
 package org.education.services.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.education.services.EcdsaDto;
+import org.education.services.dto.EcdsaDto;
+import org.education.services.controller.feign.ConvertDataFeignClient;
+import org.education.services.services.CreateData;
+import org.education.services.services.EcdsaService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

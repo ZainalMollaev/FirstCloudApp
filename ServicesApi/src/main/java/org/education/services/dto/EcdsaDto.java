@@ -1,4 +1,4 @@
-package org.education.services;
+package org.education.services.dto;
 
 import lombok.Setter;
 import lombok.Getter;
