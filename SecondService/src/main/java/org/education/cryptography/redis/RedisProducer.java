@@ -10,15 +10,12 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class RedisProducer {
 
+    @Value("${redis.topic.gateway}")
+    private String gatewayTopic;
     private final RedisTemplate<String, EcdsaDto> redisTemplate;
 
-    @Value("${redis.topic.gateway}")
-    private String messageTopic;
-
     public void sendMessage(EcdsaDto ecdsaDto) {
-
-        redisTemplate.convertAndSend(messageTopic, ecdsaDto);
-
+        redisTemplate.convertAndSend(gatewayTopic, ecdsaDto);
     }
 
 }

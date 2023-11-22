@@ -20,12 +20,12 @@ public class EcdsaService {
     public boolean isCorrect(EcdsaDto ecdsaDto) throws NoSuchAlgorithmException, SignatureException, InvalidKeyException, InvalidKeySpecException {
 
         Signature ecdsaVerify = Signature.getInstance("SHA256withECDSA");
-        EncodedKeySpec encodedKeySpec = new X509EncodedKeySpec(Base64.getDecoder().decode(ecdsaDto.getPublicKey()));
+        EncodedKeySpec encodedKeySpec = new X509EncodedKeySpec(Base64.getDecoder().decode(ecdsaDto.getPublicKey().getBytes()));
         KeyFactory kf = KeyFactory.getInstance("EC");
         ecdsaVerify.initVerify(kf.generatePublic(encodedKeySpec));
-        ecdsaVerify.update(ecdsaDto.getMessage());
+        ecdsaVerify.update(ecdsaDto.getMessage().getBytes());
 
-        return ecdsaVerify.verify(ecdsaDto.getMessage());
+        return ecdsaVerify.verify(ecdsaDto.getSubscribedMessage().getBytes());
     }
 
 

@@ -12,18 +12,12 @@ import org.springframework.stereotype.Service;
 public class RedisProducer {
 
     private final RedisTemplate<String, EcdsaDto> redisTemplate;
-    private final DataCreatorService dataCreatorService;
-
-
     @Value("${redis.topic.sign}")
-    private String messageTopic;
+    private String signTopic;
 
     public void sendMessage(EcdsaDto ecdsaDto) {
-
-        byte[] randomData = dataCreatorService.randomBytes(200);
-
-        redisTemplate.convertAndSend(messageTopic, ecdsaDto);
-
+        //todo Обработать com.google.gson.JsonSyntaxException: java.lang.IllegalStateException:
+        redisTemplate.convertAndSend(signTopic, ecdsaDto);
     }
 
 }

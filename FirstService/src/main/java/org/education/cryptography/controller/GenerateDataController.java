@@ -13,7 +13,6 @@ public class GenerateDataController {
 
     @GetMapping("/randomBytes")
     public void generate() {
-
         redisSenderService.subscribe();
     }
 

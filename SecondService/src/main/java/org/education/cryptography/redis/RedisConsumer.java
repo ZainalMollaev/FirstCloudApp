@@ -1,10 +1,10 @@
-package org.education.cryptography.controller.redis;
+package org.education.cryptography.redis;
 
 import com.google.gson.Gson;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.education.cryptography.dto.EcdsaDto;
-import org.education.cryptography.services.EcdsaService;
+import org.education.cryptography.services.ConvertEcdsaService;
 import org.springframework.data.redis.connection.Message;
 import org.springframework.data.redis.connection.MessageListener;
 import org.springframework.stereotype.Component;
@@ -13,20 +13,17 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class RedisConsumer implements MessageListener {
 
-    private final EcdsaService ecdsaService;
+    private final RedisProducer redisProducer;
+    private final ConvertEcdsaService convertEcdsaService;
 
     @SneakyThrows
     @Override
     public void onMessage(Message message, byte[] pattern) {
 
-        if(new String(message.getChannel()).startsWith("gateway")){
-
-            String ecdsaJson = new String(message.getBody());
-            Gson gson = new Gson();
-            EcdsaDto ecdsaDto = gson.fromJson(ecdsaJson, EcdsaDto.class);
-
-            ecdsaService.isCorrect(ecdsaDto);
-        }
+        Gson gson = new Gson();
+        EcdsaDto ecdsaDto = gson.fromJson(new String(message.getBody()), EcdsaDto.class);
+        ecdsaDto = convertEcdsaService.sign(ecdsaDto.getMessage().getBytes());
+        redisProducer.sendMessage(ecdsaDto);
 
     }
 

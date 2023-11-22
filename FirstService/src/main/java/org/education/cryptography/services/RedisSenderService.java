@@ -16,7 +16,7 @@ public class RedisSenderService {
 
         byte[] randomData = dataCreatorService.randomBytes(200);
         redisProducer.sendMessage(EcdsaDto.builder()
-                        .message(randomData)
+                        .message(new String(randomData))
                 .build());
 
     }
