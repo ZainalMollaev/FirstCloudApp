@@ -1,0 +1,55 @@
+2023-11-22T15:40:23.341+03:00  INFO 1636 --- [main] org.education.cryptography.Gateway       : Starting Gateway using Java 20.0.2.1 with PID 1636 (C:\Users\java_\IdeaProjects\FirstCloudApp\FirstService\target\classes started by java_ in C:\Users\java_\IdeaProjects\FirstCloudApp)
+2023-11-22T15:40:23.345+03:00  INFO 1636 --- [main] org.education.cryptography.Gateway       : No active profile set, falling back to 1 default profile: "default"
+2023-11-22T15:40:23.921+03:00  INFO 1636 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-11-22T15:40:23.922+03:00  INFO 1636 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-11-22T15:40:23.948+03:00  INFO 1636 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2023-11-22T15:40:24.120+03:00  INFO 1636 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-11-22T15:40:24.120+03:00  INFO 1636 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-11-22T15:40:24.135+03:00  INFO 1636 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
+2023-11-22T15:40:24.636+03:00  INFO 1636 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-11-22T15:40:24.646+03:00  INFO 1636 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-22T15:40:24.646+03:00  INFO 1636 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-11-22T15:40:24.746+03:00  INFO 1636 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-11-22T15:40:24.746+03:00  INFO 1636 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1317 ms
+2023-11-22T15:40:25.335+03:00  WARN 1636 --- [Finalizer] i.l.c.resource.DefaultClientResources    : io.lettuce.core.resource.DefaultClientResources was not shut down properly, shutdown() was not called before it's garbage-collected. Call shutdown() or shutdown(long,long,TimeUnit) 
+2023-11-22T15:40:25.707+03:00  INFO 1636 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-11-22T15:40:26.250+03:00  INFO 1636 --- [main] org.education.cryptography.Gateway       : Started Gateway in 3.675 seconds (process running for 4.721)
+2023-11-22T15:40:27.699+03:00  INFO 1636 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-22T15:40:27.699+03:00  INFO 1636 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-11-22T15:40:27.700+03:00  INFO 1636 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-11-22T15:40:27.736+03:00  INFO 1636 --- [http-nio-8080-exec-1] o.e.c.controller.GenerateDataController  : Hello, log!
+2023-11-22T15:40:27.925+03:00 ERROR 1636 --- [listenerContainer-2] o.s.d.r.l.a.MessageListenerAdapter       : Listener execution failed
+
+java.security.SignatureException: Invalid encoding for signature
+	at java.base/sun.security.util.ECUtil.decodeSignature(ECUtil.java:310) ~[na:na]
+	at jdk.crypto.ec/sun.security.ec.ECDSASignature.engineVerify(ECDSASignature.java:506) ~[jdk.crypto.ec:na]
+	at java.base/java.security.Signature$Delegate.engineVerify(Signature.java:1422) ~[na:na]
+	at java.base/java.security.Signature.verify(Signature.java:790) ~[na:na]
+	at org.education.cryptography.services.EcdsaService.isCorrect(EcdsaService.java:28) ~[classes/:na]
+	at org.education.cryptography.controller.redis.RedisConsumer.onMessage(RedisConsumer.java:31) ~[classes/:na]
+	at org.springframework.data.redis.listener.adapter.MessageListenerAdapter.onMessage(MessageListenerAdapter.java:296) ~[spring-data-redis-3.1.2.jar:3.1.2]
+	at org.springframework.data.redis.listener.RedisMessageListenerContainer.processMessage(RedisMessageListenerContainer.java:845) ~[spring-data-redis-3.1.2.jar:3.1.2]
+	at org.springframework.data.redis.listener.RedisMessageListenerContainer.lambda$dispatchMessage$7(RedisMessageListenerContainer.java:993) ~[spring-data-redis-3.1.2.jar:3.1.2]
+	at java.base/java.lang.Thread.run(Thread.java:1623) ~[na:na]
+Caused by: java.io.IOException: Not the correct tag
+	at java.base/sun.security.util.DerValue.subs(DerValue.java:1277) ~[na:na]
+	at java.base/sun.security.util.DerInputStream.getSequence(DerInputStream.java:204) ~[na:na]
+	at java.base/sun.security.util.ECUtil.decodeSignature(ECUtil.java:286) ~[na:na]
+	... 9 common frames omitted
+
+2023-11-22T15:47:57.387+03:00  INFO 13256 --- [main] org.education.cryptography.Gateway       : Starting Gateway using Java 20.0.2.1 with PID 13256 (C:\Users\java_\IdeaProjects\FirstCloudApp\FirstService\target\classes started by java_ in C:\Users\java_\IdeaProjects\FirstCloudApp)
+2023-11-22T15:47:57.391+03:00  INFO 13256 --- [main] org.education.cryptography.Gateway       : No active profile set, falling back to 1 default profile: "default"
+2023-11-22T15:47:57.945+03:00  INFO 13256 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-11-22T15:47:57.946+03:00  INFO 13256 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-11-22T15:47:57.974+03:00  INFO 13256 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2023-11-22T15:47:58.151+03:00  INFO 13256 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-11-22T15:47:58.151+03:00  INFO 13256 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-11-22T15:47:58.163+03:00  INFO 13256 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2023-11-22T15:47:58.657+03:00  INFO 13256 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-11-22T15:47:58.667+03:00  INFO 13256 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-22T15:47:58.668+03:00  INFO 13256 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-11-22T15:47:58.768+03:00  INFO 13256 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-11-22T15:47:58.769+03:00  INFO 13256 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1292 ms
+2023-11-22T15:47:59.397+03:00  WARN 13256 --- [Finalizer] i.l.c.resource.DefaultClientResources    : io.lettuce.core.resource.DefaultClientResources was not shut down properly, shutdown() was not called before it's garbage-collected. Call shutdown() or shutdown(long,long,TimeUnit) 
+2023-11-22T15:47:59.751+03:00  INFO 13256 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-11-22T15:48:00.260+03:00  INFO 13256 --- [main] org.education.cryptography.Gateway       : Started Gateway in 3.605 seconds (process running for 4.588)

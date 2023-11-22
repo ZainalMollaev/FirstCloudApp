@@ -1,13 +1,8 @@
-eureka:
-  client:
-    register-with-eureka: false
-    fetch-registry: false
-
-
 redis:
   topic:
     sign: signServiceTopic
     gateway: gatewayTopic
+
 
 spring:
   data:
@@ -17,3 +12,9 @@ spring:
       port: 16379
       password: mypass
       timeout: 60000
+
+logging:
+  file:
+    name: FirstService/gateway.log
+
+

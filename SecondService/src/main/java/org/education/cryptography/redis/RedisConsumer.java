@@ -19,12 +19,13 @@ public class RedisConsumer implements MessageListener {
     @SneakyThrows
     @Override
     public void onMessage(Message message, byte[] pattern) {
+        if(new String(message.getChannel()).startsWith("sign")) {
 
-        Gson gson = new Gson();
-        EcdsaDto ecdsaDto = gson.fromJson(new String(message.getBody()), EcdsaDto.class);
-        ecdsaDto = convertEcdsaService.sign(ecdsaDto.getMessage().getBytes());
-        redisProducer.sendMessage(ecdsaDto);
-
+            Gson gson = new Gson();
+            EcdsaDto ecdsaDto = gson.fromJson(new String(message.getBody()), EcdsaDto.class);
+            ecdsaDto = convertEcdsaService.sign(ecdsaDto.getMessage().getBytes());
+            redisProducer.sendMessage(ecdsaDto);
+        }
     }
 
 }
